@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { isDevMode } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormGroup, FormControl } from '@angular/forms';
 
@@ -11,11 +12,17 @@ import { AppService } from '../../services/app.service';
 })
 export class LoginComponent implements OnInit {
 
-loginForm: FormGroup;
-message:string;
+  loginForm: FormGroup;
+  message: string;
 
-  constructor(private appService:AppService, private router:Router) { 
-    //check if the environment is development so we can bypass the login part
+  constructor(private appService: AppService, private router: Router) {
+    if (isDevMode()) {
+      var model = new UserModel();
+      model.Username = "Karl";
+      model.Password = "Test";
+      this.appService.SetUser(model);
+      this.router.navigateByUrl("/app/dashboard");
+    }
   }
 
   ngOnInit() {
@@ -27,19 +34,17 @@ message:string;
     this.message = "";
   }
 
-  OnSubmit = function(formValues){
+  OnSubmit = function (formValues) {
     var model = new UserModel();
     model.Username = formValues.Username;
     model.Password = formValues.Password;
-    
-    if(model.IsValidated())
-    {
+
+    if (model.IsValidated()) {
       //create a global service to hold values that is needed in the app and those values are from the server
       this.appService.SetUser(model);
       this.router.navigateByUrl("/app/dashboard");
     }
-    else
-    {
+    else {
       this.message = model.ErrorMessage;
     }
   }
@@ -58,15 +63,13 @@ class UserModel {
     this.ErrorMessage = "";
   }
 
-  IsValidated = function(){
-    if(this.Username == '')
-    {
+  IsValidated = function () {
+    if (this.Username == '') {
       this.ErrorMessage = "Username is required.";
       return false;
     }
 
-    if(this.Password == '')
-    {
+    if (this.Password == '') {
       this.ErrorMessage = "Password is required.";
       return false;
     }
