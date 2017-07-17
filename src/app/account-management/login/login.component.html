@@ -1,0 +1,35 @@
+<div>
+      <div class="login_wrapper">
+        <div class="animate form login_form">
+          <section class="login_content">
+            <form [formGroup]="loginForm" (ngSubmit) ="OnSubmit(loginForm.value)" >
+                <h1>Login</h1>
+              <div>
+                <small>{{message}}</small>
+              </div>
+              <div>
+                <input type="text" class="form-control" name="Username" placeholder="Username" required="" formControlName="Username"/>
+              </div>
+              <div>
+                <input type="password" class="form-control"  placeholder="Password" required="" formControlName="Password"/>
+              </div>
+              <div>
+                <input type="submit" class="btn btn-default submit" value="Log in" />
+                <a class="reset_pass" routerLink="/app/dashboard">Lost your password?</a>
+              </div>
+
+              <div class="clearfix"></div>
+
+              <div class="separator">
+                <p class="change_link">New to site?
+                  <a routerLink="/register" class="to_register"> Create Account </a>
+                </p>
+
+                <div class="clearfix"></div>
+                
+              </div>
+            </form>
+          </section>
+        </div>
+      </div>
+    </div>
