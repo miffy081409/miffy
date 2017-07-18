@@ -6,9 +6,10 @@ import { RouterModule } from '@angular/router';
 
 import { routes } from '../../../app.routes';
 
-import { NewComponent } from './new/new.component';
+
+import { ProductComponent } from './product.component';
 import { ListComponent } from './list/list.component';
-import { EmployeeComponent } from './employee.component';
+import { NewComponent } from './new/new.component';
 
 @NgModule({
   imports: [
@@ -17,6 +18,6 @@ import { EmployeeComponent } from './employee.component';
     HttpModule,
     RouterModule.forRoot(routes),
   ],
-  declarations: [NewComponent, ListComponent, EmployeeComponent]
+  declarations: [ProductComponent, ListComponent, NewComponent]
 })
-export class EmployeeModule { }
+export class ProductModule { }

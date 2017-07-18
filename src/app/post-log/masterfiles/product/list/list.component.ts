@@ -12,7 +12,6 @@ export class ListComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    
   }
 
   ngAfterViewInit(){
@@ -22,4 +21,5 @@ export class ListComponent implements OnInit {
   initJquery(){
     $('#datatable-responsive').DataTable();
   }
+
 }

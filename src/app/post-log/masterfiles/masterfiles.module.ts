@@ -3,12 +3,14 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
 import { EmployeeModule } from './employee/employee.module';
+import { ProductModule } from './product/product.module';
 
 @NgModule({
   imports: [
     CommonModule,
     RouterModule,
-    EmployeeModule
+    EmployeeModule,
+    ProductModule
   ],
   declarations: []
 })

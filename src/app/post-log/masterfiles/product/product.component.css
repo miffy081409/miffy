@@ -1,0 +1,6 @@
+.toolbar{
+    padding:5px 0;
+}
+.btn-group > .btn{
+    border-radius: 0;
+}

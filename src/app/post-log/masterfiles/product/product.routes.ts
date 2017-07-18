@@ -2,10 +2,10 @@ import { Routes } from '@angular/router';
 
 import { NewComponent } from './new/new.component';
 import { ListComponent } from './list/list.component';
-import { EmployeeComponent } from './employee.component';
+import { ProductComponent } from './product.component';
 
-export const EmployeeRoutes: Routes = [
-  {path:'employee', component: EmployeeComponent, children:[
+export const ProductRoutes: Routes = [
+  {path:'product', component: ProductComponent, children:[
     {path: 'new', component: NewComponent},
     {path: 'list', component: ListComponent}
   ]}
